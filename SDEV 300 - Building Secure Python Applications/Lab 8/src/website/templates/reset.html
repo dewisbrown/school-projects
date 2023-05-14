@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+<!-- page title -->
+{% block head %}Register{% endblock %}
+
+{% block body %}
+<h2>Reset Password</h2>
+<form method="POST">
+    <label for="username">Username</label>
+    <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Username"
+    />
+    <label for="current_password">Current Password</label>
+    <input
+        type="password"
+        id="current_password"
+        name="current_password"
+        placeholder="Current Password"
+    />
+    <label for="password1">New Password</label>
+    <input
+        type="password"
+        id="password1"
+        name="password1"
+        placeholder="New Password"
+    />
+    <label for="password2">New Password (Confirm)</label>
+    <input
+        type="password"
+        id="password2"
+        name="password2"
+        placeholder="Confirm New Password"
+    />
+    <br/>
+    <button type="submit">Submit</button>
+
+</form>
+{% endblock %}

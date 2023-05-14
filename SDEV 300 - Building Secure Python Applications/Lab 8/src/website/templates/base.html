@@ -1,0 +1,74 @@
+<!-- Used by child html files to display both a header and footer,
+     along with most of the boilerplate html code -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Linking css file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>{% block head %}{% endblock %}</title>
+</head>
+<body>
+    <div id="header">
+        <img src="{{ url_for('static', filename='images/logo.png') }}">
+        <h1>Shape Shifters</h1>
+        <p id="datetime">{{ datetime }}</p>
+        <nav>
+            <ul>
+                <!-- Navigation bar is different depending on if user is logged in -->
+                {% if user.is_authenticated %}
+                <li><a href="/">Home</a></li>
+                <li><a href="/guides">Guides</a></li>
+                <li><a href="/records">Records</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/reset">Reset Password</a></li>
+                <li><a href="/logout">Logout</a></li>
+                {% else %}
+                <li><a href="/">Home</a></li>
+                <li><a href="/guides">Guides</a></li>
+                <li><a href="/records">Records</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+
+
+    <div id="base_body">
+
+    <!-- Display flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <!-- Can be updated to include more categories -->
+        {% if category == 'error' %}
+            <div id="error">{{ message }}</div>
+        {% else %}
+            <div id="success">{{ message }}</div>
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <!-- HTML for different pages goes between header and footer -->
+    {% block body %} {% endblock %}
+    </div>
+    <footer> <!-- Social media links would eventually link personal pages -->
+        <a href="https://www.facebook.com">
+            <img src="{{ url_for('static', filename='images/facebook.png') }}" class="social_icon">
+        </a>
+        <a href="https://www.youtube.com" >
+            <img src="{{ url_for('static', filename='images/youtube.png') }}" class="social_icon">
+        </a>
+        <a href="https://www.twitter.com">
+            <img src="{{ url_for('static', filename='images/twitter.png') }}" class="social_icon">
+        </a>
+        <a href="https://www.instagram.com">
+            <img src="{{ url_for('static', filename='images/instagram.png') }}" class="social_icon">
+        </a>
+    </footer>
+
+</body>
+</html>

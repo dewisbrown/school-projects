@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+<!-- page title -->
+{% block head %}Profile{% endblock %}
+
+{% block body %}
+<h2>Welcome back {{ user.username }}!</h2>
+<p>Use the text area and submit button to save your solve times.</p>
+
+<!-- Form for puzzle solve time input. Input is added to database.db and linked to user -->
+<form method="POST" id="profile_form">
+    <textarea name="time" id="time"></textarea>
+    <br />
+    <button type="submit" id="time_button">Add Time</button>
+</form>
+
+<h3 id="time_list_heading">Your solve data:</h3>
+<ol id="time_list">
+    {% for time in user.times %}
+    <li>{{ time.data }}</li>
+    {% endfor %}
+</ol>
+{% endblock %}

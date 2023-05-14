@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<!-- page title -->
+{% block head %}Records{% endblock %}
+
+{% block body %}
+<h2>World Records</h2>
+<table id="record_table">
+    <tr>
+        <th>Category</th>
+        <th>Time</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Year</th>
+    </tr>
+    <!-- Expandable table with record input from main.py -->
+    {% for record in records %}
+        <tr>
+            <td>{{ record.category }}</td>
+            <td>{{ record.time }}</td>
+            <td>{{ record.name }}</td>
+            <td>{{ record.country }}</td>
+            <td>{{ record.year }}</td>
+        </tr>
+    {% endfor %}
+    <!-- More records can be added later -->
+</table>
+{% endblock %}
