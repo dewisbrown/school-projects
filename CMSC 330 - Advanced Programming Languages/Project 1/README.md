@@ -1,3 +1,3 @@
 # CMSC 330 - Project 1
 This program parses a GUI definition language definied in a text file and genereates the defined GUI. The grammar for the language can be found in the Project 1.pdf. I did not include any of the test files used to demonstrate functionality, but below is a screenshot that sums it up.
-![Image](https://www.canva.com/design/DAFocZIJxjc/9yvEo1MrVhtMh920CaSfSw/view?utm_content=DAFocZIJxjc&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+![project 1 screeshot](../../readmeImages/cmsc330-project1.png)
